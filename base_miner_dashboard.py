@@ -143,7 +143,7 @@ col_m1, col_m2, col_m3 = st.columns(3)  # Define the columns for displaying metr
 # Define metrics safely - check if columns exist
 metrics_to_display = {
     'Blocks Won': ('Total Blocks Won', 0),
-    'WESO Earned': ('Total WESO Earned', 0.0),
+    'BASE Earned': ('Total BASE Earned', 0.0),
     'Hashes Submitted': ('Total Hashes Submitted', 0)
 }
 metric_columns = [col_m1, col_m2, col_m3]
@@ -156,7 +156,7 @@ for col_name, (label, default_value) in metrics_to_display.items():
                 value = df[col_name].sum()
                 # Apply thousands separator formatting for integers or floats
                 value = format_with_thousands_separator(value)
-                # Apply rounding for float values (like WESO Earned)
+                # Apply rounding for float values (like BASE Earned)
                 if isinstance(value, (int, float)):
                     value = round(value, 6)
             else:
@@ -203,15 +203,15 @@ if charts_possible:
         st.info("Info: 'Blocks Won' data not available for charting.")
 
     # 2. Crypto Earned per Wallet Address
-    if 'WESO Earned' in df_chart.columns:
-        st.subheader("WESO Earned per Wallet Address")
+    if 'BASE Earned' in df_chart.columns:
+        st.subheader("BASE Earned per Wallet Address")
         crypto_chart = alt.Chart(df_chart).mark_bar(color='purple').encode(
-            x=alt.X('WESO Earned:Q', title='WESO Earned'),
+            x=alt.X('BASE Earned:Q', title='BASE Earned'),
             y=y_axis
         ).properties(width=700, height=300)
         st.altair_chart(crypto_chart, use_container_width=True)
     else:
-         st.info("Info: 'WESO Earned' data not available for charting.")
+         st.info("Info: 'BASE Earned' data not available for charting.")
 
     # 3. Hashes Submitted per Wallet Address
     if 'Hashes Submitted' in df_chart.columns:
