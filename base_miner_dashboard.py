@@ -16,7 +16,7 @@ st.set_page_config(page_title="BASE mining Leaderboard", layout="wide")
 locale.setlocale(locale.LC_ALL, '')  # Use the default locale (e.g., based on the system)
 
 # Define the data URL
-url = "https://159.89.162.245:9191/leaderboard?window=all_time&limit=100"
+url = "https://159.89.162.245:9191/leaderboard?window=all_time&limit=50"
 
 # Fetch the data from the API
 try:
