@@ -16,7 +16,7 @@ st.set_page_config(page_title="BASE mining Leaderboard", layout="wide")
 locale.setlocale(locale.LC_ALL, '')  # Use the default locale (e.g., based on the system)
 
 # Define the data URL
-url = "https://159.89.162.245:9191/leaderboard?limit=250"
+url = "https://159.89.162.245:9191/leaderboard?window=all_time&limit=100"
 
 # Fetch the data from the API
 try:
@@ -228,3 +228,4 @@ if charts_possible:
 # Add a footer or separator if desired
 st.markdown("---")
 st.caption(f"Data fetched at: {pd.Timestamp.now(tz='America/Chicago').strftime('%Y-%m-%d %H:%M:%S %Z')}")
+
